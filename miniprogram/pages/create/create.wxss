@@ -1,0 +1,14 @@
+/* pages/create/create.wxss */
+page {
+  height: 100%;
+}
+.create-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.create-wrap .textarea {
+  flex: 1;
+}

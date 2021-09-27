@@ -1,0 +1,7 @@
+<!--pages/detail/detail.wxml-->
+<pre>
+  <code class="language-css">
+    <rich-text nodes="{{code}}"></rich-text>
+    {{id}}
+  </code>
+</pre>
