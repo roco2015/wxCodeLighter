@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    title: '',
     code: '',
   },
 
@@ -15,7 +16,13 @@ Page({
 
   },
 
-  handleInput(e) {
+  handleInputTitle(e) {
+    this.setData({
+      title: e.detail.value
+    })
+  },
+
+  handleInputCode(e) {
     this.setData({
       code: e.detail.value
     })
@@ -26,9 +33,11 @@ Page({
       title: '',
     });
     wx.cloud.callFunction({
-      name: 'saveCode',
+      name: 'cloud',
       data: {
-        code: this.data.code
+        function: 'saveCode',
+        code: this.data.code,
+        title: this.data.title
       }
     }).then((resp) => {
       wx.hideLoading();

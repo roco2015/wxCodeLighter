@@ -1,6 +1,7 @@
 <!--pages/create/create.wxml-->
 <view class="create-wrap">
-  <textarea class="textarea" placeholder="请输入代码" bindinput="handleInput"/>
+  <input class="title" placeholder="请输入标题" bindinput="handleInputTitle"/>
+  <textarea class="textarea" placeholder="请输入代码" bindinput="handleInputCode"/>
   <button bindtap="handleSubmit">提交</button>
   <cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>
 </view>

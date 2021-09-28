@@ -22,8 +22,10 @@
   </view>
   <view class="code-wrap">
     <view class="code-box">
-      <p bindtap="toDetail" data-id="1"><text class="name">1. test1</text><text class="time">2021-09-25 12:13</text></p>
-      <p bindtap="toDetail" data-id="2"><text class="name">2. 快速排序</text><text class="time">2021-09-25 12:13</text></p>
+      <view wx:for="{{codeList}}" wx:key="index" wx:for-index="index" wx:for-item="item" 
+        :data-id="index" bindtap="toDetail">
+        {{index + 1}}. {{item.title}}
+      </view>
     </view>
   </view>
 </view>

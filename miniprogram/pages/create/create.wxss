@@ -9,6 +9,11 @@ page {
   padding: 30rpx;
   box-sizing: border-box;
 }
+.create-wrap .title {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10rpx;
+}
 .create-wrap .textarea {
+  margin-top: 10rpx;
   flex: 1;
 }
