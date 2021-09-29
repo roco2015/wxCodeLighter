@@ -55,10 +55,10 @@ Page({
     }).then((res) => {
       if (res.result?.code === 0) {
         const codeList = res.result?.data?.list || []
+        console.log(codeList)
         this.setData({codeList})
       }
-    }).catch((e) => {
-    });
+    }).catch((e) => {});
   },
   toDetail(e) {
     wx.navigateTo({

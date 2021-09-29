@@ -1,12 +1,12 @@
 // pages/detail/detail.js
 import Prism from 'prismjs';
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    code: Prism.highlight('var data = 1;', Prism.languages.javascript, 'javascript'),
+    code: '',
     id: 0,
   },
 
@@ -14,52 +14,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
     this.setData({
       id: options.id,
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+    console.log('options')
+    wx.cloud.callFunction({
+      name: 'cloud',
+      data: {
+        function: 'getCodeById',
+        id: options.id
+      }
+    }).then((res) => {
+      if (res.result?.code === 0) {
+        const code = Prism.highlight(res.result?.data?.code || '', Prism.languages.javascript, 'javascript');
+        this.setData({code});
+      }
+    }).catch((e) => {});
   },
 
   /**
